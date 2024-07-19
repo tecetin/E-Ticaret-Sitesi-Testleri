@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="istenen class'lari calistirma" thread-count="2" parallel="classes">
+    <test name="login testleri">
+
+        <classes>
+            <class name="tests.HbUrunArama"></class>
+            
+        </classes>
+
+
+    </test>
+</suite>
