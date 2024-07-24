@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HepsiburadaPage;
 
@@ -122,6 +123,10 @@ public class ReusableMethods {
         Workbook workbook = WorkbookFactory.create(fileInputStream);
         Sheet sheet = workbook.getSheetAt(0);
         return sheet.getLastRowNum();
+    }
+
+    public static void waitForElementToBeClickable(WebDriverWait wait, WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 

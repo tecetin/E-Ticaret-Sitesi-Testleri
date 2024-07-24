@@ -1,8 +1,10 @@
 package tests.listeUzerindenSepeteEkleme.bClasses;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -47,7 +49,7 @@ public class bC04_xPuanUzeriUrunSecimi {
 
         HepsiburadaPage hb = new HepsiburadaPage();
         Actions actions = new Actions(Driver.getDriver());
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         SoftAssert sa = new SoftAssert();
 
         //excelde yazan sırayla ürün aratılır ve ürün bulunduğu doğrulanarak sayısı kaydedilir
@@ -56,11 +58,8 @@ public class bC04_xPuanUzeriUrunSecimi {
         urunArama.urunAramaTesti(item, rowNum);
 
         //Puan listesini açmak için Değerlendirme Puanına Tıkla - sayfayı yeniliyor bulamıyor, engelleyici eklendi
-        try {
-            hb.degerlendirmePuani.click();
-        } catch (Exception e) {
-            hb.degerlendirmePuani.click();
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(hb.degerlendirmePuani));
+        actions.moveToElement(hb.degerlendirmePuani).click().perform();
 
         //Puanı seç
         puan = 3;

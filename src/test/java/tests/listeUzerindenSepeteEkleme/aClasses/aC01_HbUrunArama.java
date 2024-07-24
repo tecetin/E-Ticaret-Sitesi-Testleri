@@ -37,12 +37,22 @@ public class aC01_HbUrunArama {
         //waitler önce element görünene kadar beklediği için NoSuchElement hatasını engelliyor, sonra da webelementi yenileyip StaleElement hatasını engelliyor
         */
         //arama kutusuna tıklayıp açılan input elementine değer atanıyor
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[2]/div/div[2]/div/div/div/div/div[1]/div[2]"))); //hb.searchBox
-        actions.moveToElement(hb.searchBox).sendKeys(Keys.ESCAPE).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[2]/div/div[2]/div/div/div/div/div[1]/div[2]"))); //hb.searchBox
-        actions.click(hb.searchBox).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(hb.searchBoxInput))
-                .sendKeys(item + Keys.ENTER);
+        //işlem yapılana kadar sayfa yenilenecek
+        boolean success = false;
+        while (!success) {
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[2]/div/div[2]/div/div/div/div/div[1]/div[2]"))); //hb.searchBox
+                actions.moveToElement(hb.searchBox).sendKeys(Keys.ESCAPE).perform();
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[2]/div/div[2]/div/div/div/div/div[1]/div[2]"))); //hb.searchBox
+                actions.click(hb.searchBox).perform();
+                wait.until(ExpectedConditions.elementToBeClickable(hb.searchBoxInput))
+                        .sendKeys(item + Keys.ENTER);
+
+                success = true;
+            } catch (Exception e) {
+                Driver.getDriver().navigate().refresh();
+            }
+        }
 
         //pencereyi kapat, if döngüsü diğer classlarda kullanırken driverın kapatılmaması için koyduldu.
         if (shouldCloseDriver) {
