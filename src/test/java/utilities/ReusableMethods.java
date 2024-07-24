@@ -4,10 +4,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HepsiburadaPage;
 
 import java.io.File;
@@ -15,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,6 +22,8 @@ import java.util.List;
 import java.util.Set;
 
 public class ReusableMethods {
+    static JavascriptExecutor js;
+    static WebDriverWait wait;
 
     public static List<String> toStringList(List<WebElement> webElementList){
         List<String> stringListe = new ArrayList<>();
@@ -108,7 +109,7 @@ public class ReusableMethods {
     }
 
     public static int hbSonucAdedi(WebElement element){
-        int sonuc = Integer.parseInt(element.getText().replaceAll("\\D", ""));;
+        int sonuc = Integer.parseInt(element.getText().replaceAll("\\D", ""));
         return sonuc;
     }
 
@@ -122,5 +123,7 @@ public class ReusableMethods {
         Sheet sheet = workbook.getSheetAt(0);
         return sheet.getLastRowNum();
     }
+
+
 
 }
