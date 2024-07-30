@@ -1,4 +1,4 @@
-package tests.listeUzerindenSepeteEkle.aClasses;
+package tests.Case2_UrunSayfasindanSepeteEkle;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,11 +14,9 @@ import utilities.Driver;
 import java.io.IOException;
 import java.time.Duration;
 
-public class aC01_HbUrunArama {
+public class C01_HbUrunArama {
 
-    public boolean shouldCloseDriver = true;
-
-    @Test(dataProvider = "itemIndex", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "itemIndex", dataProviderClass = DataProviders.class, priority = 1)
     public void urunAramaTesti(String item, int rowNum) throws IOException {
 
         Driver.getDriver().get(ConfigReader.getProperty("hbUrl"));
@@ -53,13 +51,9 @@ public class aC01_HbUrunArama {
                 Driver.getDriver().navigate().refresh();
             }
         }
-
-        //pencereyi kapat, if döngüsü diğer classlarda kullanırken driverın kapatılmaması için koyduldu.
-        if (shouldCloseDriver) {
-            Driver.quitDriver();
-        }
     }
 }
+
 
 
 

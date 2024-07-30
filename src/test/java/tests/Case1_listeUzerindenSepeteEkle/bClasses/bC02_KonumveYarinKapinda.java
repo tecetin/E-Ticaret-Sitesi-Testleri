@@ -1,4 +1,4 @@
-package tests.listeUzerindenSepeteEkle.bClasses;
+package tests.Case1_listeUzerindenSepeteEkle.bClasses;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
-import tests.listeUzerindenSepeteEkle.aClasses.aC01_HbUrunArama;
+import tests.Case1_listeUzerindenSepeteEkle.aClasses.aC01_HbUrunArama;
 import utilities.DataProviders;
 import utilities.Driver;
 

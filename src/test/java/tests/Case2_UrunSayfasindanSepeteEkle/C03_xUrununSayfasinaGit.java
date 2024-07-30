@@ -1,4 +1,4 @@
-package tests.UrunSayfasindanSepeteEkle;
+package tests.Case2_UrunSayfasindanSepeteEkle;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,7 +12,6 @@ import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
 import utilities.DataProviders;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import java.time.Duration;
 import java.util.Set;

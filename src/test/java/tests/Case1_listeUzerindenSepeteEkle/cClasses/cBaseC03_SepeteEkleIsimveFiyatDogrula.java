@@ -1,30 +1,21 @@
-package tests.listeUzerindenSepeteEkle.cClasses;
+package tests.Case1_listeUzerindenSepeteEkle.cClasses;
 
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
-import tests.listeUzerindenSepeteEkle.bClasses.bC02_KonumveYarinKapinda;
-import utilities.ConfigReader;
 import utilities.DataProviders;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 
-public class cC03_2_SepeteEkleIsimveFiyatDogrula {
+public class cBaseC03_SepeteEkleIsimveFiyatDogrula {
 
     public boolean shouldCloseDriver3 = true;
 
@@ -55,31 +46,22 @@ public class cC03_2_SepeteEkleIsimveFiyatDogrula {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(1));
         SoftAssert sa = new SoftAssert();
 
-        //excele bilgi işlemek için hazırlık
-        FileInputStream fileInputStream = new FileInputStream(ConfigReader.getProperty("filePath"));
-        Workbook workbook = WorkbookFactory.create(fileInputStream);
-        Sheet sheet = workbook.getSheetAt(0);
+        /*-------------------------------------------------------------------------------------------------------------
 
-        //-------------------------------------------------------------------------------------------------------------------------------------------
-        //filtre yöntemi : Adres seçimi ve Yarın Kapında
-        bC02_KonumveYarinKapinda test1ve2 = new bC02_KonumveYarinKapinda();
 
-        test1ve2.shouldCloseDriver2 = false; //C02 çalıştıktan sonra driver kapanmaması için false
-        test1ve2.yarinKapinda(item, rowNum); //C02 konum işareti ve yarın kapıda testi çalışıp ürün aratma ve yarın kapındayı işaretleyecek
-        //-------------------------------------------------------------------------------------------------------------------------------------------
 
-        //filtre sonucu bulunan ürün adedini yaz ve excele yazdır
-        int sonucAdedi = ReusableMethods.hbSonucAdedi(hb.foundItemAmount);
-        Assert.assertTrue(sonucAdedi > 0, "Sonuc bulunamadi.");
+        Filtre tercihleri için eklenecek sınıf seçilir ve çalıştırılır.
+        b classlar eklenmelidir.
 
-        sheet.getRow(rowNum).getCell(0).setCellValue(item);
-        sheet.getRow(rowNum).getCell(1).setCellValue(sonucAdedi);
-        sheet.getRow(rowNum).getCell(2).setCellValue(bC02_KonumveYarinKapinda.kargoBilgi);
+
+
+         -------------------------------------------------------------------------------------------------------------*/
 
         //ürünün listedeki isim ve fiyatını kaydet
         WebElement urunKutusu = null;
         try {
             urunKutusu = Driver.getDriver().findElement(By.xpath(getXpathForUrunBilgiKutusu(i)));
+            urunKutusu.isDisplayed();
         } catch (Exception e) {;
             i=1;
             urunKutusu = Driver.getDriver().findElement(By.xpath(getXpathForUrunBilgiKutusu(i)));
@@ -133,12 +115,6 @@ public class cC03_2_SepeteEkleIsimveFiyatDogrula {
             System.out.println("Sepette ürün bulunmamaktadır:" + item);
         }
 
-        //excel yazıldıktan sonra kayıt ve kapatma işlemi
-        FileOutputStream fileOutputStream = new FileOutputStream(ConfigReader.getProperty("filePath"));
-        workbook.write(fileOutputStream);
-        fileInputStream.close();
-        fileOutputStream.close();
-        workbook.close();
         //pencereyi kapat
         if (shouldCloseDriver3) {
             Driver.quitDriver();

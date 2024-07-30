@@ -1,7 +1,6 @@
-package tests.listeUzerindenSepeteEkle.cClasses;
+package tests.Case1_listeUzerindenSepeteEkle.cClasses;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
-import tests.listeUzerindenSepeteEkle.bClasses.bC04_xPuanUzeriUrunSecimi;
+import tests.Case1_listeUzerindenSepeteEkle.bClasses.bC04_xPuanUzeriUrunSecimi;
 import utilities.*;
 
 import java.io.IOException;

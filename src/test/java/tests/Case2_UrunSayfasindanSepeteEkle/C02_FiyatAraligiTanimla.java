@@ -1,4 +1,4 @@
-package tests.UrunSayfasindanSepeteEkle;
+package tests.Case2_UrunSayfasindanSepeteEkle;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

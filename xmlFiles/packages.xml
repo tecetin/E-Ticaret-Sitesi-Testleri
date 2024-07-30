@@ -3,7 +3,7 @@
 <suite name="Package calistirma">
     <test name="Urun Sayfasindan Sepete Ekle">
         <packages>
-            <package name="tests.UrunSayfasindanSepeteEkle">
+            <package name="tests.Case2_UrunSayfasindanSepeteEkle">
             </package>
         </packages>
     </test>
