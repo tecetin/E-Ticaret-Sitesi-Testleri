@@ -14,10 +14,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
 import tests.Case1_listeUzerindenSepeteEkle.bClasses.bC02_KonumveYarinKapinda;
-import utilities.ConfigReader;
-import utilities.DataProviders;
-import utilities.Driver;
-import utilities.ReusableMethods;
+import utilities.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -55,11 +52,6 @@ public class cC03_2_SepeteEkleIsimveFiyatDogrula {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(1));
         SoftAssert sa = new SoftAssert();
 
-        //excele bilgi işlemek için hazırlık
-        FileInputStream fileInputStream = new FileInputStream(ConfigReader.getProperty("filePath"));
-        Workbook workbook = WorkbookFactory.create(fileInputStream);
-        Sheet sheet = workbook.getSheetAt(0);
-
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //filtre yöntemi : Adres seçimi ve Yarın Kapında
         bC02_KonumveYarinKapinda test1ve2 = new bC02_KonumveYarinKapinda();
@@ -72,9 +64,14 @@ public class cC03_2_SepeteEkleIsimveFiyatDogrula {
         int sonucAdedi = ReusableMethods.hbSonucAdedi(hb.foundItemAmount);
         Assert.assertTrue(sonucAdedi > 0, "Sonuc bulunamadi.");
 
-        sheet.getRow(rowNum).getCell(0).setCellValue(item);
-        sheet.getRow(rowNum).getCell(1).setCellValue(sonucAdedi);
-        sheet.getRow(rowNum).getCell(2).setCellValue(bC02_KonumveYarinKapinda.kargoBilgi);
+        //Excel dosyasına sonuçları kaydet
+        ExcelKayit excelKayit = new ExcelKayit();
+        excelKayit.excelBilgiKayit(ConfigReader.getProperty("filePath"),
+                0, rowNum, 0, item);
+        excelKayit.excelBilgiKayit(ConfigReader.getProperty("filePath"),
+                0, rowNum, 1, sonucAdedi);
+        excelKayit.excelBilgiKayit(ConfigReader.getProperty("filePath"),
+                0, rowNum, 2, bC02_KonumveYarinKapinda.kargoBilgi);
 
         //ürünün listedeki isim ve fiyatını kaydet
         WebElement urunKutusu = null;
@@ -133,12 +130,9 @@ public class cC03_2_SepeteEkleIsimveFiyatDogrula {
             System.out.println("Sepette ürün bulunmamaktadır:" + item);
         }
 
-        //excel yazıldıktan sonra kayıt ve kapatma işlemi
-        FileOutputStream fileOutputStream = new FileOutputStream(ConfigReader.getProperty("filePath"));
-        workbook.write(fileOutputStream);
-        fileInputStream.close();
-        fileOutputStream.close();
-        workbook.close();
+        //Sepetin ekran görüntüsünü al
+        ReusableMethods.pageScreenShot(Driver.getDriver(), item + " SepetSS");
+
         //pencereyi kapat
         if (shouldCloseDriver3) {
             Driver.quitDriver();
