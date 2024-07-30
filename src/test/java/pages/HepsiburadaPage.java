@@ -1,5 +1,6 @@
 package pages;
 
+import org.checkerframework.framework.qual.FromStubFile;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,10 +25,10 @@ public class HepsiburadaPage {
     public WebElement foundItemAmount;
 
     @FindBy (className = "horizontalSortingBar-Ce404X9mUYVCRa5bjV4D")
-    public WebElement siralamaTik;
+    public WebElement siralama;
 
-    @FindBy (xpath = "(//*[@data-test-id='dropdown-content']/div/div/a)[1]")
-    public WebElement enDusukFiyat;
+    @FindBy (xpath = "//*[text()='Yüksek puanlılar']")
+    public WebElement yuksekPuanlilar;
 
     //@FindBy (className = "LocationBox-dw9u20rbc1hxlbtwkdhU")
     @FindBy (xpath = "//div[3]/div[1]/div/div[2]/div/div/div/div/div/div")
@@ -67,17 +68,31 @@ public class HepsiburadaPage {
     @FindBy (id = "basket_payedPrice")
     public WebElement sepetToplami;
 
-    @FindBy (id = "puan")
+    @FindBy (xpath = "//*[text()='Değerlendirme Puanı']")
     public WebElement degerlendirmePuani;
 
     @FindBy (xpath = "//*[@id='puan']/div")
     public WebElement puanListesi;
 
+    @FindBy (xpath = "//div[@data-test-id='collapse-title' and text()='Fiyat Aralığı']")
+    public WebElement fiyatAraligi;
+
+    @FindBy (xpath = "//div[4]/div/div/div/div/div[1]/div/div[1]/input")
+   public WebElement enAzFiyat;
+
+    @FindBy (className = "addToCartButton")
+    public WebElement sepeteEkle;
+
+    @FindBy (xpath = "//*[text()='Sepete git']")
+    public WebElement sepeteGit2;
+
+    @FindBy (xpath = "//header/h1")
+    public WebElement urunAdi;
+
+    @FindBy (className = "tippy-content")
+    public WebElement popUp;
 
 
-public WebElement elementYenile(WebElement xxx){
-    return xxx;
-}
 
 
 }

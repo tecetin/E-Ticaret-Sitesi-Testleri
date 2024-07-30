@@ -1,24 +1,16 @@
-package tests.listeUzerindenSepeteEkleme.bClasses;
+package tests.listeUzerindenSepeteEkle.bClasses;
 
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HepsiburadaPage;
-import tests.listeUzerindenSepeteEkleme.aClasses.aC01_HbUrunArama;
-import utilities.ConfigReader;
+import tests.listeUzerindenSepeteEkle.aClasses.aC01_HbUrunArama;
 import utilities.DataProviders;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 

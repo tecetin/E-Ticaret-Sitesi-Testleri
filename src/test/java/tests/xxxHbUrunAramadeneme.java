@@ -66,10 +66,10 @@ public class xxxHbUrunAramadeneme {
             int sonucAdedi = ReusableMethods.hbSonucAdedi(hepsiburadaPage.foundItemAmount);
             Assert.assertTrue(sonucAdedi > 0, "Sonuc bulunamadi.");
 
-            hepsiburadaPage.siralamaTik.click();
+            //hepsiburadaPage.siralama.click();
 
             Actions actions = new Actions(Driver.getDriver());
-            actions.moveToElement(hepsiburadaPage.enDusukFiyat).click().perform();
+            actions.moveToElement(hepsiburadaPage.yuksekPuanlilar).click().perform();
 
             ReusableMethods.wait(5);
 
