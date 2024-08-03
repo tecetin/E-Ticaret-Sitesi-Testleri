@@ -8,6 +8,8 @@ tek tek gönderir. eğer ürün satırında boşluk varsa o satırı atlar.
 iki b aynı anda çalışabilir ama çakışmalar yaşanabilir, kontrol edilmeden çalıştırılmamalıdır.
 !c ile başlayan classlar --> Base class üzerine eklenen b class özelliklerini işleten ortak classlardır. 
 Aslında base classtır ama içinde çalıştırılan classa göre farklı sonuçlar verir.
-<<<<<<< HEAD
+
+Case1'i çalıştırmak için yalnızca c classları çalıştırmak yeterlidir.
+Case2'yi çalıştırmak için xml file çalıştırılmalıdır.
 
 
