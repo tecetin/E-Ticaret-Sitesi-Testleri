@@ -1,6 +1,5 @@
 package pages;
 
-import org.checkerframework.framework.qual.FromStubFile;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,11 +14,11 @@ public class HepsiburadaPage {
     @FindBy (xpath = "//*[text()='Kabul et']")
     public WebElement acceptCookies;
 
-    @FindBy (xpath = "//div[2]/div/div[2]/div/div/div/div/div[1]/div[2]")
-    public WebElement searchBox;
+    @FindBy (xpath = "//*[@id='container']/div/div/div[3]/div[2]")
+    public WebElement sayfaYuklemeReklami;
 
-    @FindBy (xpath = "/html/body/div[1]/div/div/div[4]/div[5]/div/div/div/div[1]/div[2]/div[2]/div/div[2]/div/div/div/div/div[1]/div[2]/input")
-    public WebElement searchBoxInput;
+    @FindBy (xpath = "//div[2]/div/div[2]/div/div/div/div")
+    public WebElement searchBox;
 
     @FindBy (xpath = "//b[@class='searchResultSummaryBar-AVnHBWRNB0_veFy34hco']")
     public WebElement foundItemAmount;
@@ -68,11 +67,14 @@ public class HepsiburadaPage {
     @FindBy (id = "basket_payedPrice")
     public WebElement sepetToplami;
 
-    @FindBy (xpath = "//*[text()='Değerlendirme Puanı']")
+    @FindBy (xpath = "//*[@id='puan']")
     public WebElement degerlendirmePuani;
 
     @FindBy (xpath = "//*[@id='puan']/div")
     public WebElement puanListesi;
+
+    @FindBy (xpath = "//*[@id='appliedVerticalFilterBar']")
+    public WebElement seciliFiltreler;
 
     @FindBy (xpath = "//div[@data-test-id='collapse-title' and text()='Fiyat Aralığı']")
     public WebElement fiyatAraligi;
@@ -92,6 +94,17 @@ public class HepsiburadaPage {
     @FindBy (className = "tippy-content")
     public WebElement popUp;
 
+    @FindBy (xpath = "/html/body/div[7]/div/div")
+    public WebElement urunDetayPenceresi;
+
+    @FindBy (xpath = "/html/body/div[7]/div/div/div/div[2]/div[2]/button")
+    public WebElement detayPenceresiSepeteEkle;
+
+    @FindBy (xpath = "")
+    public WebElement penceredenSepeteEklendi;
+
+    @FindBy (xpath = "//*[@id='basket-item-count']")
+    public WebElement sepettekiUrunCesidi;
 
 
 
