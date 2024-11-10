@@ -20,15 +20,6 @@ public class PazaramaSepeteEkle extends ExtentReportp {
     private static boolean cookieAccepted = false;
     Actions actions = new Actions(Driver.getDriver());
 
-    public static int sonucSayisi(WebElement element) {
-        PazaramaPage page = new PazaramaPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-
-        wait.until(ExpectedConditions.visibilityOf(element));
-        String sonucYazisi = element.getText();
-
-        return Integer.parseInt(sonucYazisi.replaceAll("\\D", ""));
-    }
 
     @Test(dataProvider = "itemIndex", dataProviderClass = DataProviders.class, priority = 1)
     public void urunAraSepeteEkle(String item, int rowNum) throws IOException {
@@ -72,7 +63,7 @@ public class PazaramaSepeteEkle extends ExtentReportp {
             extentTest.pass("Açılan sayfanın kullanıcı sepeti olduğu doğrulanır.");
 
             wait.until(ExpectedConditions.visibilityOf(page.sepettekiUrunSayisi));
-            int sepettekiUrunSayisi = sonucSayisi(page.sepettekiUrunSayisi);
+            int sepettekiUrunSayisi = ReusableMethods.sonucSayisi(page.sepettekiUrunSayisi);
             if (sepettekiUrunSayisi > 0) {
 
                 extentTest.pass("Sepette ürün bulunduğu doğrulanmıştır.",
@@ -173,7 +164,7 @@ public class PazaramaSepeteEkle extends ExtentReportp {
                 MediaEntityBuilder.createScreenCaptureFromBase64String(ReusableMethods.sayfaSSBase64()).build());
 
         // Arama sonucunda ürün çıktığını doğrula
-        int sonuc = sonucSayisi(page.kategoriSonucYazisi);
+        int sonuc = ReusableMethods.sonucSayisi(page.kategoriSonucYazisi);
         Assert.assertTrue(sonuc > 0, "Sonuc bulunamadi.");
         extentTest.pass("Aranan ürün kategorisinde ürün bulunduğu doğrulanmıştır.");
         extentTest.info("Aranan ürün kategorisinde " + sonuc + " adet ürün bulunmaktadır.",

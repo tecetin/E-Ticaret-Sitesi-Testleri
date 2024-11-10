@@ -408,4 +408,13 @@ public class ReusableMethods {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
+    public static int sonucSayisi(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOf(element));
+        String sonucYazisi = element.getText();
+
+        return Integer.parseInt(sonucYazisi.replaceAll("\\D", ""));
+    }
+
 }
