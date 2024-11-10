@@ -10,6 +10,5 @@ iki b aynı anda çalışabilir ama çakışmalar yaşanabilir, kontrol edilmede
 Aslında base classtır ama içinde çalıştırılan classa göre farklı sonuçlar verir.
 
 Case1'i çalıştırmak için yalnızca c classları çalıştırmak yeterlidir.
-Case2'yi çalıştırmak için xml file çalıştırılmalıdır.
 
 
