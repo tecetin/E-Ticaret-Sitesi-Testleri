@@ -99,9 +99,6 @@ public class LCWSepeteEkle extends ExtentReportlcw {
         extentTest.info("Aranan ürün: " + item + " kategorisinde " + sonuc + " adet ürün bulunmaktadır.",
                 MediaEntityBuilder.createScreenCaptureFromBase64String(ReusableMethods.WEResmiBase64(page.kategoriSonucYazisi)).build());
 
-
-
-
     }
 
     public void uruneGit() {
